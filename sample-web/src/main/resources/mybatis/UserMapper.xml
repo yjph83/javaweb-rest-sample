@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace必须指向Dao接口 -->
+<mapper namespace="com.ch.cloud.demo.dao.UserDAO">
+    <sql id="All_Column_Values">
+        id,name,age,status,opt_lock,description,create_time,update_time
+    </sql>
+
+    <select id="getById" parameterType="Long" resultType="com.ch.cloud.demo.entity.UserDO">
+        SELECT
+        <include refid="All_Column_Values"/>
+        FROM
+        t_user
+        WHERE
+        id = #{id}
+        AND
+        mark = 0
+    </select>
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id" parameterType="com.ch.cloud.demo.entity.UserDO">
+        INSERT INTO t_user(name,age,status,create_time,update_time,description) VALUES(#{name},#{age},#{status},#{createTime},#{updateTime},#{description});
+    </insert>
+
+    <update id="remove" parameterType="Long" statementType="PREPARED">
+        UPDATE t_user
+        <set>
+            mark= 1
+        </set>
+        <where>
+            id = #{id}
+            AND
+            mark = 0
+        </where>
+    </update>
+
+    <update id="update" parameterType="com.ch.cloud.demo.entity.UserDO" statementType="PREPARED">
+        UPDATE t_user
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="age != null">age= #{age},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="updateTime !=null">update_time=#{updateTime},</if>
+            <if test="optLock !=null">opt_lock=#{optLock} + 1,</if>
+            <if test="description !=null">description=#{description},</if>
+            <if test="addition !=null">addition=#{addition}</if>
+        </set>
+        <where>
+            id = #{id}
+            AND
+            mark = 0
+            AND
+            opt_lock = #{optLock}
+        </where>
+    </update>
+
+    <select id="listUser" resultType="com.ch.cloud.demo.entity.UserDO">
+        SELECT
+        <include refid="All_Column_Values"/>
+        FROM
+        t_user
+        <where>
+            mark = 0
+            <if test="status != null">
+                AND
+                status = #{status}
+            </if>
+        </where>
+    </select>
+</mapper>

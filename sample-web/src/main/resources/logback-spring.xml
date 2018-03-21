@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <!--默认上下文名称为“default”可以通过%contextName来打印日志上下文名称，一般来说我们不用这个属性，可有可无。-->
+    <contextName>springboot2-demo</contextName>
+
+    <!-- 控制台输出，appender_输出源console, encoder日志输出格式  -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder><!-- encoder的默认实现类是ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度，%msg：日志消息，%n是换行符-->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 按照每天生成Service层业务日志文件，appender_输出源file -->
+    <appender name="serviceRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs.muc/service.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <fileNamePattern>${catalina.base}/logs.muc/service.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- log file Retained for 10 days -->
+            <maxHistory>10</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- log file maxFileSize -->
+                <maxFileSize>8MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder><!-- 必须指定encoder，否则不会往文件输出内容 -->
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度，%msg：日志消息，%n是换行符-->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <!-- 以下filter错误日志不在此处日志文件中打印 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- 按照每天生成所有包下的错误日志文件，appender_输出源file -->
+    <appender name="errorRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs.error/error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <fileNamePattern>${catalina.base}/logs.error/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- log file Retained for 10 days -->
+            <maxHistory>10</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- log file maxFileSize -->
+                <maxFileSize>8MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder><!-- 必须指定encoder，否则不会往文件输出内容 -->
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度，%msg：日志消息，%n是换行符-->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <!-- 以下filter表示只打印错误日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+
+    <!-- logger_日志记录器， level_日志级别  -->
+    <!-- name值可以是包名或具体的类名：该包（包括子包）下的类或该类将采用此logger -->
+    <logger name="com.ch.cloud" level="INFO" additivity="false">
+        <appender-ref ref="serviceRollingFile" />
+        <appender-ref ref="errorRollingFile" />
+    </logger>
+
+    <!-- root的默认level是DEBUG -->
+    <root level="INFO">
+        <appender-ref ref="serviceRollingFile" />
+    </root>
+
+    <!-- root的默认level是DEBUG -->
+    <root level="ERROR">
+        <appender-ref ref="errorRollingFile" />
+    </root>
+</configuration>

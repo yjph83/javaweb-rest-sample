@@ -1,0 +1,56 @@
+server:
+    port: 8080
+
+spring:
+    datasource:
+        name: test
+        #jdbc配置
+        #jspring.datasource.druid.url= # 或spring.datasource.url=
+        #jspring.datasource.druid.username= # 或spring.datasource.username=
+        #jspring.datasource.druid.password= # 或spring.datasource.password=
+        #jspring.datasource.druid.driver-class-name= #或 spring.datasource.driver-class-name=
+        url: jdbc:mysql://172.17.123.138:3306/springbootdemo?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+        username: root
+        password: chcloud20180309
+        driver-class-name: com.mysql.jdbc.Driver
+        # 使用druid数据源配置:
+        druid:
+            initial-size: 2
+            max-active: 20
+            min-idle: 5
+            pool-prepared-statements: true
+            max-pool-prepared-statement-per-connection-size: 20
+            #max-open-prepared-statements: 20 #和上面的等价
+            validation-query: select 1 from dual
+            validation-query-timeout: 60000
+            test-on-borrow: false
+            test-on-return: false
+            test-while-idle: true
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 30000
+            max-evictable-idle-time-millis: 60000
+            # 默认的filter配置，不满足的话查阅alibaba github官网配置；配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+            filter: stat,log4j
+
+        # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+        #connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+
+    # 使用flyway数据脚本版本控制和数据迁移
+    flyway:
+        baseline-on-migrate: true
+        table: t_schema_version
+        encoding: utf-8
+        locations: classpath:db/migration,classpath:db/dev
+
+mybatis:
+    mapper-locations: classpath*:mybatis/*.xml
+    type-aliases-package: com.ch.cloud.demo.dao
+    config-location: classpath:/mybatis-config.xml
+#pagehelper
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+

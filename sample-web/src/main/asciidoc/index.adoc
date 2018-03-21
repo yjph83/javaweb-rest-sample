@@ -1,0 +1,80 @@
+= XXX接口文档
+v1.0,2018-03-08
+
+[[overview]]
+== 概要
+本文是XXX接口说明文档，所有接口都是RESTFul风格的API，接口说明包括：请求方式、请求地址、请求参数说明和响应消息等。
+
+[[resources]]
+== RESTFul API
+
+[[resources-users]]
+=== User
+
+用户模块相关的接口。
+
+[[resources-users-list]]
+==== 获得用户列表
+
+===== curl请求
+include::{generated}/users-list/curl-request.adoc[]
+===== http请求
+include::{generated}/users-list/http-request.adoc[]
+===== 请求参数
+include::{generated}/users-list/request-parameters.adoc[]
+===== http响应
+include::{generated}/users-list/http-response.adoc[]
+===== 响应字段说明
+include::{generated}/users-list/response-fields.adoc[]
+
+[[resources-users-get]]
+==== 根据id查找用户
+
+===== curl请求
+include::{generated}/users-get/curl-request.adoc[]
+===== http请求
+include::{generated}/users-get/http-request.adoc[]
+===== path参数
+include::{generated}/users-get/path-parameters.adoc[]
+===== http响应
+include::{generated}/users-get/http-response.adoc[]
+===== 响应字段说明
+include::{generated}/users-get/response-fields.adoc[]
+
+[[resources-users-save]]
+==== 添加用户
+
+===== curl请求
+include::{generated}/users-save/curl-request.adoc[]
+===== http请求
+include::{generated}/users-save/http-request.adoc[]
+===== 请求字段说明
+include::{generated}/users-save/request-fields.adoc[]
+===== http响应
+include::{generated}/users-save/http-response.adoc[]
+
+[[resources-users-update]]
+==== 修改用户
+
+===== curl请求
+include::{generated}/users-update/curl-request.adoc[]
+===== http请求
+include::{generated}/users-update/http-request.adoc[]
+===== path参数
+include::{generated}/users-update/path-parameters.adoc[]
+===== 请求字段说明
+include::{generated}/users-update/request-fields.adoc[]
+===== http响应
+include::{generated}/users-update/http-response.adoc[]
+
+[[resources-users-remove]]
+==== 删除用户
+
+===== curl请求
+include::{generated}/users-remove/curl-request.adoc[]
+===== http请求
+include::{generated}/users-remove/http-request.adoc[]
+===== path参数
+include::{generated}/users-remove/path-parameters.adoc[]
+===== http响应
+include::{generated}/users-remove/http-response.adoc[]
