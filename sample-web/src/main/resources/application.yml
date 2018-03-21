@@ -28,7 +28,7 @@ spring:
             test-while-idle: true
             time-between-eviction-runs-millis: 60000
             min-evictable-idle-time-millis: 30000
-            max-evictable-idle-time-millis: 60000
+            max-evictable-idle-time-millis: 50000
             # 默认的filter配置，不满足的话查阅alibaba github官网配置；配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
             filter: stat,log4j
 
