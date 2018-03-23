@@ -91,9 +91,9 @@ public class UserRestServiceTest extends SpringRestDocsCommTest {
         user.put("name", "spring-doc");
         user.put("age", 30);
         user.put("status", 0);
-        user.put("description", "a spring doc test user");
+        user.put("description", "测试添加新用户");
         this.mockMvc.perform(
-                post("/v1/users").contentType("application/json").content(
+                post("/v1/users").contentType("application/json").characterEncoding("UTF-8").content(
                         objectMapper.writeValueAsString(user))).andExpect(
                 status().isOk())
                 .andDo(document("users-save",

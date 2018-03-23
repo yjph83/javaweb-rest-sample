@@ -2,6 +2,9 @@ server:
     port: 8080
 
 spring:
+    application:
+        name: javaweb-java-sample
+
     datasource:
         name: test
         #jdbc配置
@@ -28,7 +31,7 @@ spring:
             test-while-idle: true
             time-between-eviction-runs-millis: 60000
             min-evictable-idle-time-millis: 30000
-            max-evictable-idle-time-millis: 50000
+            #max-evictable-idle-time-millis: 50000
             # 默认的filter配置，不满足的话查阅alibaba github官网配置；配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
             filter: stat,log4j
 
@@ -43,6 +46,17 @@ spring:
         encoding: utf-8
         locations: classpath:db/migration,classpath:db/dev
 
+    redis:
+        database: 1
+        host: 10.3.30.17
+        port: 6379
+        jedis:
+            pool:
+                max-active: 8
+                min-idle: 0
+                max-idle: 8
+                max-wait: -1ms
+
 mybatis:
     mapper-locations: classpath*:mybatis/*.xml
     type-aliases-package: com.ch.cloud.demo.dao
@@ -53,4 +67,8 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+
+exampleService:
+    ribbon:
+        listOfServers: http://10.3.30.17:8098
 

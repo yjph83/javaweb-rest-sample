@@ -18,4 +18,8 @@ public class StringUtil {
         return org.springframework.util.StringUtils.isEmpty(str);
     }
 
+
+    public static void main(String[] args) {
+        System.out.println(UUID().length());
+    }
 }

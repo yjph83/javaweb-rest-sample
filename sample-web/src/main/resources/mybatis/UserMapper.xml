@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace必须指向Dao接口 -->
 <mapper namespace="com.ch.cloud.demo.dao.UserDAO">
+    <cache type="com.ch.cloud.demo.cache.MyBatisRedisCache"/>
     <sql id="All_Column_Values">
         id,name,age,status,opt_lock,description,create_time,update_time
     </sql>
