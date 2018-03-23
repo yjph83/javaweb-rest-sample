@@ -49,6 +49,8 @@ spring:
     redis:
         database: 1
         host: 10.3.30.17
+        #redis密码，没有密码的可以用~表示
+        password: ~
         port: 6379
         jedis:
             pool:
@@ -68,6 +70,16 @@ pagehelper:
     supportMethodsArguments: true
     params: count=countSql
 
+# 日志输出
+logging:
+    #file: D:/boot.log
+    level:
+        # mybatis sql 打印日志级别
+        com.ch.cloud.demo.dao: DEBUG
+        # 业务日志级别
+        root: DEBUG
+
+# feign 要用的
 exampleService:
     ribbon:
         listOfServers: http://10.3.30.17:8098
