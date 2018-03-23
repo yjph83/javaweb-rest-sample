@@ -12,6 +12,8 @@
 * 集成pmd及阿里巴巴代码规范检测插件；
 * 集成asciidoctor 离线文档插件；
 * mybatis generator 自动生成代码插件 1.3.2
+* 集成feign 功能
+* 集成redis，mybatis缓存功能
 
 
 
