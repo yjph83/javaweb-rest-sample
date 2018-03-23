@@ -1,7 +1,7 @@
 package com.ch.cloud.demo.exception;
 
 /**
- * @author huwei
+ * @author yjph83
  * @date 2017/11/22
  */
 public enum ServiceError {

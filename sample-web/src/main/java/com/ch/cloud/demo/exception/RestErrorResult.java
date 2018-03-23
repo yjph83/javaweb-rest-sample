@@ -2,7 +2,7 @@ package com.ch.cloud.demo.exception;
 
 /**
  *
- * @author liwei
+ * @author yjph83
  * @date 2017/6/22
  */
 public class RestErrorResult {

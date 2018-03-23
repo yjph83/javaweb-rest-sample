@@ -3,7 +3,7 @@ package com.ch.cloud.demo.exception;
 import org.springframework.http.HttpStatus;
 
 /**
- * @author wei9.li
+ * @author yjph83
  * @date 2017/4/27
  */
 public class RestException extends RuntimeException {

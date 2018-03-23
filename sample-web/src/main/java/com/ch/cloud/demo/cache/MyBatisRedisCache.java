@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * @author liwei
+ * @author yjph83
  */
 public class MyBatisRedisCache implements Cache {
 

@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author huwei
+ * @author yjph83
  * @date 2018/3/7
  */
 public abstract class AbstractDO implements Serializable {
