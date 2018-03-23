@@ -18,7 +18,7 @@ package com.ch.cloud.demo.cache;
 import org.springframework.data.redis.core.RedisTemplate;
 
 /**
- * @author liwei
+ * @author yjph83
  */
 public interface RedisCallback {
 

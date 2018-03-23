@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
 
 /**
- * @author liwei
+ * @author yjph83
  */
 @Configuration
 public class RedisCacheConfig {
