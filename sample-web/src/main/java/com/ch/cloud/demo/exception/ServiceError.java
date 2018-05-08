@@ -57,10 +57,18 @@ public enum ServiceError {
     public int code;
     public int httpStatus;
     public String message;
+    public String description;
 
     ServiceError(int code, int httpStatus, String message) {
         this.code = code;
         this.httpStatus = httpStatus;
         this.message = message;
+    }
+
+    ServiceError(int code, int httpStatus, String message, String description) {
+        this.code = code;
+        this.httpStatus = httpStatus;
+        this.message = message;
+        this.description = description;
     }
 }

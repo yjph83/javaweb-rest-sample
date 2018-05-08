@@ -8,10 +8,9 @@ import org.springframework.http.HttpStatus;
  */
 public class RestException extends RuntimeException {
     public int status = HttpStatus.INTERNAL_SERVER_ERROR.value();
-    RestErrorResult error;
+    Object error;
 
-    public RestException() {
-    }
+    public RestException() {}
 
     public RestException(int status) {
         this.status = status;
@@ -27,6 +26,12 @@ public class RestException extends RuntimeException {
         this.error = new RestErrorResult(this.status, message);
     }
 
+    public RestException(int status, String code, String message, String description) {
+        super(message);
+        this.status = status;
+        this.error = new RestErrorResultV2(code, message, description);
+    }
+
     public int getStatus() {
         return status;
     }
@@ -35,11 +40,11 @@ public class RestException extends RuntimeException {
         this.status = status;
     }
 
-    public RestErrorResult getError() {
+    public Object getError() {
         return error;
     }
 
-    public void setError(RestErrorResult error) {
+    public void setError(Object error) {
         this.error = error;
     }
 }
