@@ -58,6 +58,12 @@ spring:
                 min-idle: 0
                 max-idle: 8
                 max-wait: -1ms
+    #spring boot 乱码配置，但是最好写自定义的配置类
+    http:
+        encoding:
+            charset: UTF-8
+            enabled: true
+            force: true
 
 mybatis:
     mapper-locations: classpath*:mybatis/*.xml
@@ -72,14 +78,23 @@ pagehelper:
 
 # 日志输出
 logging:
-    #file: D:/boot.log
+    #file: D:/boot.log    #将日志写入到指定的 文件 中，默认为相对路径，可以设置成绝对路径
+    #path: D:/            #将名为 spring.log 写入到指定的 文件夹 中，如（/var/log）
     level:
         # mybatis sql 打印日志级别
         com.ch.cloud.demo.dao: DEBUG
         # 业务日志级别
         root: DEBUG
+        # 日志http请求跟踪，发现Feign内部其实使用的是现成的http工具：httpclient，okhttp3，可以通过配置替换实现
+        org.apache.http: trace
+
 
 # feign 要用的
+# eureka 无注册中心，故禁用
+ribbon:
+    eureka:
+        enabled: false
+# 服务的 ribbon 均衡地址，也就是服务提供方地址端口（离开公司的环境这个服务就用不了）
 exampleService:
     ribbon:
         listOfServers: http://10.3.30.17:8098

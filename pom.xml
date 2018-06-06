@@ -139,18 +139,33 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-feign</artifactId>
-                <version>1.4.3.RELEASE</version>
+                <version>1.4.4.RELEASE</version>
             </dependency>
-            <!--Spring redis -->
+            <!--Spring redis 采用jedis方式-->
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-starter-redis</artifactId>-->
+                <!--<version>1.4.7.RELEASE</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>redis.clients</groupId>-->
+                <!--<artifactId>jedis</artifactId>-->
+                <!--<version>2.9.0</version>-->
+            <!--</dependency>-->
+            <!--spring data redis 2.0之后底层换Lettuce基于Netty的连接实例（StatefulRedisConnection），
+            可以在多个线程间并发访问，且线程安全，满足多线程环境下的并发访问，同时它是可伸缩的设计，
+            一个连接实例不够的情况也可以按需增加连接实例。-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-redis</artifactId>
-                <version>1.4.7.RELEASE</version>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>2.0.0.RELEASE</version>
             </dependency>
+
+            <!--该依赖可以不添加，但是在 IDEA 和 STS 中不会有属性提示，没有提示的配置就跟你用记事本写代码一样苦逼-->
             <dependency>
-                <groupId>redis.clients</groupId>
-                <artifactId>jedis</artifactId>
-                <version>2.9.0</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <optional>true</optional>
             </dependency>
 
             <dependency>

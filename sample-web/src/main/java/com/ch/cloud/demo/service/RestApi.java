@@ -1,4 +1,4 @@
-package com.ch.cloud.demo.controller;
+package com.ch.cloud.demo.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
