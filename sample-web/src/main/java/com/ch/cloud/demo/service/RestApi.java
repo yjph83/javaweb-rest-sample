@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2018/3/21
  */
 
-@FeignClient(name = "exampleService",
-        url = "${exampleService.ribbon.listOfServers}")
-@RequestMapping(value = "/",
-        consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
-        produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@FeignClient(name = "exampleService",url = "${exampleService.ribbon.listOfServers}")
+@RequestMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public interface RestApi {
 
     /**
