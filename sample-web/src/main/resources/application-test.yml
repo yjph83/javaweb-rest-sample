@@ -1,0 +1,104 @@
+server:
+    port: 8080
+
+spring:
+    profiles:
+        active: test
+
+    application:
+        name: javaweb-java-sample
+
+    datasource:
+        name: test
+        #jdbc配置
+        #jspring.datasource.druid.url= # 或spring.datasource.url=
+        #jspring.datasource.druid.username= # 或spring.datasource.username=
+        #jspring.datasource.druid.password= # 或spring.datasource.password=
+        #jspring.datasource.druid.driver-class-name= #或 spring.datasource.driver-class-name=
+        url: jdbc:h2:mem:sample;DB_CLOSE_DELAY=-1;
+        username: sa
+        password:
+        driver-class-name: org.h2.Driver
+        # 使用druid数据源配置:
+        druid:
+            initial-size: 2
+            max-active: 20
+            min-idle: 5
+            pool-prepared-statements: true
+            max-pool-prepared-statement-per-connection-size: 20
+            #max-open-prepared-statements: 20 #和上面的等价
+            validation-query: select 1 from dual
+            validation-query-timeout: 60000
+            test-on-borrow: false
+            test-on-return: false
+            test-while-idle: true
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 30000
+            #max-evictable-idle-time-millis: 50000
+            # 默认的filter配置，不满足的话查阅alibaba github官网配置；配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+            filter: stat,log4j
+
+        # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+        #connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+
+    # 使用flyway数据脚本版本控制和数据迁移, ",classpath:db/dev" 生产环境部署时必须去掉
+    flyway:
+        baseline-on-migrate: true
+        table: t_schema_version
+        encoding: utf-8
+        locations: classpath:db/migration,classpath:db/test
+
+    redis:
+        database: 1
+        host: 10.3.30.17
+        #redis密码，没有密码的可以用~表示
+        password: ~
+        port: 6379
+        jedis:
+            pool:
+                max-active: 8
+                min-idle: 0
+                max-idle: 8
+                max-wait: -1ms
+    #spring boot 乱码配置，但是最好写自定义的配置类
+    http:
+        encoding:
+            charset: UTF-8
+            enabled: true
+            force: true
+
+mybatis:
+    mapper-locations: classpath*:mybatis/*.xml
+    type-aliases-package: com.ch.cloud.demo.dao
+    config-location: classpath:/mybatis-config.xml
+#pagehelper
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+
+# 日志输出
+logging:
+    #file: D:/boot.log    #将日志写入到指定的 文件 中，默认为相对路径，可以设置成绝对路径
+    #path: D:/            #将名为 spring.log 写入到指定的 文件夹 中，如（/var/log）
+    level:
+        # mybatis sql 打印日志级别
+        com.ch.cloud.demo.dao: DEBUG
+        # 业务日志级别
+        root: DEBUG
+        # 日志http请求跟踪，发现Feign内部其实使用的是现成的http工具：httpclient，okhttp3，可以通过配置替换实现
+        org.apache.http: trace
+
+
+# feign 要用的
+# eureka 无注册中心，故禁用
+ribbon:
+    eureka:
+        enabled: false
+# 服务的 ribbon 均衡地址，也就是服务提供方地址端口（离开公司的环境这个服务就用不了）
+exampleService:
+    ribbon:
+        listOfServers: http://10.3.30.17:8098
+

@@ -77,7 +77,6 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <!-- swagger 在线文档 -->
@@ -126,6 +125,11 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
             <scope>true</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
