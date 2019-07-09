@@ -2,7 +2,7 @@
 
 ### 项目架构
 * JDK 1.8
-* Springboot 2.0.0.RELEASE
+* Springboot 2.1.6.RELEASE
 * Mybatis SpringBoot starter 1.3.2
 * alibaba druid 连接池1.1.9
 * pagehelper SpringBoot starter 1.2.3
@@ -22,6 +22,6 @@
 
 
 ### 更新功能
-
+更新了springdocs 2.0.3，h2 1.4.99，flayway 5.2.4等
 
 
