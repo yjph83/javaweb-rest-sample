@@ -24,4 +24,6 @@
 ### 更新功能
 更新了springdocs 2.0.3，h2 1.4.99，flayway 5.2.4等
 
+mvn clean test 可以直接进行单元测试
+
 
