@@ -1,6 +1,7 @@
 spring:
     profiles:
         active: test
+#以上是配置采用哪个环境的配置变量
 
     application:
         name: javaweb-java-sample

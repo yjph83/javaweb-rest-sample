@@ -61,23 +61,6 @@ spring:
                 min-idle: 0
                 max-idle: 8
                 max-wait: -1ms
-    #spring boot 乱码配置，但是最好写自定义的配置类
-    http:
-        encoding:
-            charset: UTF-8
-            enabled: true
-            force: true
-
-mybatis:
-    mapper-locations: classpath*:mybatis/*.xml
-    type-aliases-package: com.ch.cloud.demo.dao
-    config-location: classpath:/mybatis-config.xml
-#pagehelper
-pagehelper:
-    helperDialect: mysql
-    reasonable: true
-    supportMethodsArguments: true
-    params: count=countSql
 
 # 日志输出
 logging:
