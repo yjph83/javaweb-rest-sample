@@ -2,12 +2,6 @@ server:
     port: 8080
 
 spring:
-    profiles:
-        active: test
-
-    application:
-        name: javaweb-java-sample
-
     datasource:
         name: test
         #jdbc配置

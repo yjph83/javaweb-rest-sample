@@ -1,7 +1,7 @@
 spring:
     profiles:
         active: test
-#以上是配置采用哪个环境的配置变量
+#以上是配置采用哪个环境的配置变量，表示test环境，即，mvn clean test 可以
 
     application:
         name: javaweb-java-sample
