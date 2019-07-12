@@ -60,9 +60,9 @@ public class UserRestServiceTest extends SpringRestDocsCommTest {
                                 RESPONSE_NAV_PAGES,
                                 RESPONSE_NAV_PAGE_NUMBER,
                                 RESPONSE_NAV_FIRST_PAGE,
-                                RESPONSE_NAV_LAST_PAGE,
+                                RESPONSE_NAV_LAST_PAGE/*,
                                 RESPONSE_LAST_PAGE,
-                                RESPONSE_FIRST_PAGE)));
+                                RESPONSE_FIRST_PAGE*/)));
     }
 
 
