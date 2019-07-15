@@ -80,6 +80,18 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- lombok pojo对象不用生成get、set方法 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- mapstruct DO和DTO直接转换用的 -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+
         <!-- swagger 在线文档 -->
         <dependency>
             <groupId>io.springfox</groupId>
