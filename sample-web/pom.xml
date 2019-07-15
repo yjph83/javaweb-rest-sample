@@ -163,7 +163,7 @@
                 </configuration>
             </plugin>
 
-            <!--spring boot maven 编译插件-->
+            <!--spring boot maven 编译插件，用于创建jar-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

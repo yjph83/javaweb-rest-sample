@@ -60,13 +60,21 @@ spring:
 logging:
     #file: D:/boot.log    #将日志写入到指定的 文件 中，默认为相对路径，可以设置成绝对路径
     #path: D:/            #将名为 spring.log 写入到指定的 文件夹 中，如（/var/log）
+    #config: classpath:logback-spring.xml       # 区别上边的方式，采用指定配置文件的方式指定日志配置
     level:
         # mybatis sql 打印日志级别
         com.ch.cloud.demo.dao: DEBUG
-        # 业务日志级别
+        # root业务日志级别
         root: DEBUG
         # 日志http请求跟踪，发现Feign内部其实使用的是现成的http工具：httpclient，okhttp3，可以通过配置替换实现
         org.apache.http: trace
+    pattern:
+        console: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+        #dateformat:
+        #level:
+
+
+
 
 
 # feign 要用的

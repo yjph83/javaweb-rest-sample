@@ -187,6 +187,13 @@
                 <artifactId>spring-boot-devtools</artifactId>
                 <version>2.1.6.RELEASE</version>
             </dependency>
+
+            <!-- 该属性是用于spring boot 升级时，进行启动打印相关的属性是否被重命名或者删除用的 -->
+            <!--<dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-properties-migrator</artifactId>
+                <scope>runtime</scope>
+            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
