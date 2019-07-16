@@ -68,8 +68,8 @@ logging:
         root: DEBUG
         # 日志http请求跟踪，发现Feign内部其实使用的是现成的http工具：httpclient，okhttp3，可以通过配置替换实现
         org.apache.http: trace
-    pattern:
-        console: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+    #pattern:
+        #console: %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
         #dateformat:
         #level:
 
