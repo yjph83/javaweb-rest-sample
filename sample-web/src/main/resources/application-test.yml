@@ -60,7 +60,8 @@ spring:
 logging:
     #file: D:/boot.log    #将日志写入到指定的 文件 中，默认为相对路径，可以设置成绝对路径
     #path: D:/            #将名为 spring.log 写入到指定的 文件夹 中，如（/var/log）
-    #config: classpath:logback-spring.xml       # 区别上边的方式，采用指定配置文件的方式指定日志配置
+    #config: classpath:logback-spring.xml       # 区别上边的方式，采用指定单独的配置文件的方式指定日志配置，
+    #打开后需要讲  back_logback-spring.xml 文件名去掉back_   会在项目下生成日志文件
     level:
         # mybatis sql 打印日志级别
         com.ch.cloud.demo.dao: DEBUG
