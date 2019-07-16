@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
 
     <!--默认上下文名称为“default”可以通过%contextName来打印日志上下文名称，一般来说我们不用这个属性，可有可无。-->
-    <contextName>springboot2-demo</contextName>
+    <contextName>javaweb-rest-sample</contextName>
 
     <!-- 控制台输出，appender_输出源console, encoder日志输出格式  -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
