@@ -45,7 +45,7 @@ spring:
 
     redis:
         database: 1
-        host: 10.3.30.17
+        host: localhost
         #redis密码，没有密码的可以用~表示
         password: ~
         port: 6379

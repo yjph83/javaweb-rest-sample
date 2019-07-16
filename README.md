@@ -27,4 +27,7 @@
 
 mvn clean test 可以直接进行单元测试
 
+用dev环境启动时，需要配置jvm参数：-spring.profiles.active=dev， 或者在idea中
+   springboot下的 Active.files 中填写上dev即可
+
 

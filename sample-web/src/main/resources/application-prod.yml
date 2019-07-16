@@ -3,7 +3,7 @@ server:
 
 spring:
     datasource:
-        name: test
+        name: prod
         #jdbc配置
         #jspring.datasource.druid.url= # 或spring.datasource.url=
         #jspring.datasource.druid.username= # 或spring.datasource.username=

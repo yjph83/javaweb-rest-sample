@@ -3,15 +3,15 @@ server:
 
 spring:
     datasource:
-        name: test
+        name: dev
         #jdbc配置
         #jspring.datasource.druid.url= # 或spring.datasource.url=
         #jspring.datasource.druid.username= # 或spring.datasource.username=
         #jspring.datasource.druid.password= # 或spring.datasource.password=
         #jspring.datasource.druid.driver-class-name= #或 spring.datasource.driver-class-name=
-        url: jdbc:mysql://172.17.123.138:3306/springbootdemo?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+        url: jdbc:mysql://localhost:3306/javaweb-rest-sample?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
         username: root
-        password: chcloud20180309
+        password: password
         driver-class-name: com.mysql.jdbc.Driver
         # 使用druid数据源配置:
         druid:
@@ -45,7 +45,7 @@ spring:
 
     redis:
         database: 1
-        host: 10.3.30.17
+        host: localhost
         #redis密码，没有密码的可以用~表示
         password: ~
         port: 6379
