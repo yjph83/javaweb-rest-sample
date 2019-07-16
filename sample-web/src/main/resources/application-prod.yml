@@ -9,9 +9,9 @@ spring:
         #jspring.datasource.druid.username= # 或spring.datasource.username=
         #jspring.datasource.druid.password= # 或spring.datasource.password=
         #jspring.datasource.druid.driver-class-name= #或 spring.datasource.driver-class-name=
-        url: jdbc:mysql://172.17.123.138:3306/springbootdemo?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+        url: jdbc:mysql://172.17.123.138:3306/javaweb-rest-sample?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
         username: root
-        password: chcloud20180309
+        password: password
         driver-class-name: com.mysql.jdbc.Driver
         # 使用druid数据源配置:
         druid:

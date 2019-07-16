@@ -12,7 +12,7 @@ spring:
         url: jdbc:mysql://localhost:3306/javaweb-rest-sample?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
         username: root
         password: password
-        driver-class-name: com.mysql.jdbc.Driver
+        driver-class-name: com.mysql.cj.jdbc.Driver   #com.mysql.jdbc.Driver  #mysql驱动包用8.1.x 时要用新驱动类名
         # 使用druid数据源配置:
         druid:
             initial-size: 2
@@ -65,7 +65,7 @@ logging:
         # mybatis sql 打印日志级别
         com.ch.cloud.demo.dao: DEBUG
         # 业务日志级别
-        root: DEBUG
+        root: INFO
         # 日志http请求跟踪，发现Feign内部其实使用的是现成的http工具：httpclient，okhttp3，可以通过配置替换实现
         org.apache.http: trace
 
