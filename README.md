@@ -22,7 +22,7 @@
 
 
 ### 更新功能
-更新了springdocs 2.0.3，h2 1.4.99，flayway 5.2.4等
+更新了springdocs 2.0.3，h2 1.4.99，flayway 5.2.4,mybatis由等
 添加了mapstruc和lombok依赖包
 
 mvn clean test 可以直接进行单元测试
