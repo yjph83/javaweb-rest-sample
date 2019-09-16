@@ -11,7 +11,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 public class RedisCacheConfig {
 
     @SuppressWarnings("SpringJavaAutowiringInspection")
-    @Autowired
+    @Autowired(required = false)
     public void setRedisTemplate(RedisTemplate redisTemplate) {
         MyBatisRedisCache.setRedisTemplate(redisTemplate);
     }
